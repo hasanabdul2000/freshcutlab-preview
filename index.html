@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fresh Cut Lab — Barbershop a Centocelle, Roma</title>
+  <meta name="description" content="Fresh Cut Lab, barbershop in Via di Centocelle 530 a Roma. Tagli e barba illimitati in abbonamento da 35 €/mese, prenotazione online, area relax con PS5 e biliardo." />
+  <meta name="theme-color" content="#0c0a08" />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&family=Yellowtail&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script type="importmap">
+    { "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    } }
+  </script>
+</head>
+<body>
+  <!-- LOADER -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__logo">fresh cut</div>
+    <div class="loader__bar"><span id="loaderBar"></span></div>
+    <div class="loader__pct" id="loaderPct">0</div>
+  </div>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <a href="#top" class="nav__logo" aria-label="Fresh Cut Lab, torna su">
+      <span class="script">fresh cut</span><span class="nav__lab">LAB</span>
+    </a>
+    <nav class="nav__links" aria-label="Principale">
+      <a href="#servizi">Servizi</a>
+      <a href="#abbonamenti">Abbonamenti</a>
+      <a href="#relax">Area relax</a>
+      <a href="#dove">Dove siamo</a>
+    </nav>
+    <a href="#prenota" class="btn btn--gold btn--sm">Prenota</a>
+    <button class="nav__burger" id="burger" aria-label="Apri menu" aria-expanded="false"><span></span><span></span></button>
+  </header>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#servizi">Servizi</a>
+    <a href="#abbonamenti">Abbonamenti</a>
+    <a href="#relax">Area relax</a>
+    <a href="#prenota">Prenota</a>
+    <a href="#dove">Dove siamo</a>
+  </div>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <canvas id="hero3d" aria-hidden="true"></canvas>
+      <div class="hero__fallback" id="heroFallback" aria-hidden="true">
+        <span class="type3d" data-text="FRESH">FRESH</span>
+        <span class="type3d" data-text="CUT">CUT</span>
+      </div>
+      <div class="hero__top">
+        <span class="pill"><i class="dot"></i> Aperti · Via di Centocelle 530, Roma</span>
+      </div>
+      <div class="hero__content">
+        <h1 class="visually-hidden">Fresh Cut Lab — Barbershop a Roma Centocelle</h1>
+        <p class="hero__lab">L &nbsp; A &nbsp; B</p>
+        <p class="hero__claim">Tagli illimitati. Un solo abbonamento.<br />Prenoti quando vuoi, ti siedi e basta.</p>
+        <div class="hero__cta">
+          <a href="#prenota" class="btn btn--gold magnetic">Prenota ora <span class="arrow">→</span></a>
+          <a href="#abbonamenti" class="btn btn--ghost magnetic">Abbonamenti da 35 €</a>
+        </div>
+      </div>
+      <div class="hero__scroll"><span>Scorri</span><i></i></div>
+    </section>
+
+    <!-- MARQUEE -->
+    <section class="marquee" aria-label="In evidenza">
+      <div class="marquee__row" data-dir="1">
+        <div class="marquee__inner">
+          <span>Sfumature</span><b>✦</b><span class="outline">Barba</span><b>✦</b><span>Tagli illimitati</span><b>✦</b><span class="outline">PS5 · GTA VI</span><b>✦</b><span>Biliardo</span><b>✦</b>
+        </div>
+      </div>
+      <div class="marquee__row marquee__row--alt" data-dir="-1">
+        <div class="marquee__inner">
+          <span class="outline">Fresh cut lab</span><b>✦</b><span>Centocelle</span><b>✦</b><span class="outline">Roma</span><b>✦</b><span>Su prenotazione</span><b>✦</b>
+        </div>
+      </div>
+    </section>
+
+    <!-- MANIFESTO -->
+    <section class="manifesto">
+      <p class="eyebrow">Il laboratorio</p>
+      <p class="manifesto__text split-words">Non è il solito barbiere. È un abbonamento al tuo stile: paghi una volta al mese, tagli quante volte vuoi, prenoti in un minuto e mentre aspetti giochi una partita.</p>
+      <div class="stats">
+        <div class="stat"><span class="stat__num">∞</span><span class="stat__lbl">tagli al mese<br />con l'abbonamento</span></div>
+        <div class="stat"><span class="stat__num" data-count="12">0</span><span class="stat__lbl">mesi di prezzo<br />bloccato</span></div>
+        <div class="stat"><span class="stat__num" data-count="3">0</span><span class="stat__lbl">postazioni<br />sempre pronte</span></div>
+        <div class="stat"><span class="stat__num" data-count="40" data-suffix="%">0</span><span class="stat__lbl">di risparmio<br />fino a</span></div>
+      </div>
+    </section>
+
+    <!-- SERVIZI (horizontal) -->
+    <section class="services" id="servizi">
+      <div class="services__pin">
+        <div class="services__head">
+          <p class="eyebrow">Servizi</p>
+          <h2 class="title3d"><span>Taglio</span><span class="gold">&amp; barba.</span></h2>
+        </div>
+        <div class="services__track" id="servicesTrack">
+          <article class="scard scard--img">
+            <img src="assets/taglio.jpg" alt="Barbiere che esegue una sfumatura con la macchinetta" loading="lazy" />
+            <div class="scard__over">
+              <span class="scard__n">01</span>
+              <h3>Sfumature</h3>
+              <p>Low, mid, high, skin fade e taper. Linee pulite, transizioni morbide, finitura a rasoio.</p>
+            </div>
+          </article>
+          <article class="scard">
+            <span class="scard__n">02</span>
+            <div class="scard__icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64"><path d="M14 10c10 6 14 16 14 26s-6 18-14 18m36-44c-10 6-14 16-14 26s6 18 14 18M28 40h8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Barba</h3>
+            <p>Rifinitura della barba, contorni definiti a lama, panno caldo e prodotti dedicati.</p>
+          </article>
+          <article class="scard">
+            <span class="scard__n">03</span>
+            <div class="scard__icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64"><circle cx="18" cy="46" r="8" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="46" cy="46" r="8" fill="none" stroke="currentColor" stroke-width="3"/><path d="M23 40 48 8M41 40 16 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Taglio + barba</h3>
+            <p>Il pacchetto completo: taglio su misura e barba rifinita nella stessa seduta.</p>
+          </article>
+          <article class="scard">
+            <span class="scard__n">04</span>
+            <div class="scard__icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64"><rect x="10" y="14" width="44" height="36" rx="6" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 24h44M20 34h8m8 0h8M20 42h24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Su prenotazione</h3>
+            <p>Scegli giorno e orario dal sito. Niente file, niente attese: arrivi e sei già in poltrona.</p>
+          </article>
+          <article class="scard scard--cta">
+            <h3>Pronto per<br />il prossimo<br /><span class="gold">fresh cut?</span></h3>
+            <a href="#prenota" class="btn btn--gold magnetic">Prenota <span class="arrow">→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABBONAMENTI -->
+    <section class="plans" id="abbonamenti">
+      <div class="plans__bgword" aria-hidden="true">ILLIMITATI</div>
+      <p class="eyebrow">Abbonamenti</p>
+      <h2 class="title3d center"><span>Tagli</span><span class="gold">illimitati.</span></h2>
+      <p class="plans__sub">Servizi illimitati su prenotazione. Prezzo bloccato per 12 mesi.</p>
+
+      <div class="plans__grid">
+        <article class="plan tilt">
+          <div class="plan__shine"></div>
+          <p class="plan__tag">Solo capelli</p>
+          <div class="plan__price"><span class="plan__num">35</span><span class="plan__cur">€<small>/mese</small></span></div>
+          <p class="plan__old">anziché <s>60 €/mese</s></p>
+          <ul class="plan__list">
+            <li>Tagli illimitati su prenotazione</li>
+            <li>Sfumature e styling inclusi</li>
+            <li>Prezzo bloccato per 12 mesi</li>
+            <li>Accesso all'area relax</li>
+          </ul>
+          <button class="btn btn--ghost btn--block" data-plan="Solo capelli">Attiva abbonamento</button>
+        </article>
+
+        <article class="plan plan--hot tilt">
+          <div class="plan__shine"></div>
+          <span class="plan__badge">Il più scelto</span>
+          <p class="plan__tag">Capelli + barba</p>
+          <div class="plan__price"><span class="plan__num">45</span><span class="plan__cur">€<small>/mese</small></span></div>
+          <p class="plan__old">anziché <s>75 €/mese</s></p>
+          <ul class="plan__list">
+            <li>Tagli e barba illimitati su prenotazione</li>
+            <li>Rifinitura barba a lama</li>
+            <li>Prezzo bloccato per 12 mesi</li>
+            <li>Accesso all'area relax</li>
+          </ul>
+          <button class="btn btn--gold btn--block" data-plan="Capelli + barba">Attiva abbonamento</button>
+        </article>
+      </div>
+
+      <div class="promo tilt">
+        <div class="promo__left">
+          <p class="eyebrow">Codice sconto</p>
+          <p class="promo__code" data-text="FCL30">FCL30</p>
+        </div>
+        <div class="promo__right">
+          <p>Scrivici su WhatsApp il codice <strong>FCL30</strong>: chi scrive il codice ottiene lo sconto.</p>
+          <a class="btn btn--gold magnetic" target="_blank" rel="noopener" id="promoWa" href="#">Scrivi su WhatsApp <span class="arrow">↗</span></a>
+        </div>
+      </div>
+
+      <div class="steps">
+        <div class="step"><span>01</span><h4>Scegli il piano</h4><p>Solo capelli o capelli + barba.</p></div>
+        <div class="step"><span>02</span><h4>Prenota quando vuoi</h4><p>Tutte le volte che vuoi, dal sito o su WhatsApp.</p></div>
+        <div class="step"><span>03</span><h4>Siediti</h4><p>Arrivi all'orario, ti siedi, esci fresh.</p></div>
+      </div>
+    </section>
+
+    <!-- RELAX -->
+    <section class="relax" id="relax">
+      <div class="relax__media">
+        <img src="assets/relax.jpg" alt="Controller PS5 sul bordo del biliardo con una bibita fresca" loading="lazy" />
+      </div>
+      <div class="relax__text">
+        <p class="eyebrow">Area relax · mentre aspetti</p>
+        <h2 class="title3d"><span>Fai una</span><span class="gold">partita.</span></h2>
+        <ul class="relax__list">
+          <li><b>PS5</b><span>con GTA VI</span></li>
+          <li><b>Biliardo</b><span>sempre libero</span></li>
+          <li><b>Bevande</b><span>fresche</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SALONE -->
+    <section class="salon">
+      <div class="salon__frame" id="salonFrame">
+        <img src="assets/salone.jpg" alt="Interno del salone Fresh Cut Lab con tre postazioni e specchi ovali" loading="lazy" />
+        <div class="salon__caption">
+          <p class="eyebrow">Il salone</p>
+          <p class="salon__big">Tre postazioni.<br /><span class="gold">Zero attese.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRENOTA -->
+    <section class="booking" id="prenota">
+      <div class="booking__head">
+        <p class="eyebrow">Prenotazione</p>
+        <h2 class="title3d"><span>Prenota il</span><span class="gold">tuo posto.</span></h2>
+        <p class="booking__sub">Scegli servizio, giorno e orario. La prenotazione arriva direttamente al barbiere su WhatsApp.</p>
+      </div>
+
+      <div class="booker" id="booker">
+        <ol class="booker__steps" aria-label="Passaggi">
+          <li class="is-active" data-step-ind="1"><span>1</span>Servizio</li>
+          <li data-step-ind="2"><span>2</span>Giorno</li>
+          <li data-step-ind="3"><span>3</span>Orario</li>
+          <li data-step-ind="4"><span>4</span>Conferma</li>
+        </ol>
+
+        <div class="booker__body">
+          <!-- STEP 1 -->
+          <div class="bstep is-active" data-step="1">
+            <h3 class="bstep__title">Cosa facciamo?</h3>
+            <div class="choices" id="serviceChoices">
+              <button class="choice" data-service="Taglio"><b>Taglio</b><small>Sfumatura e styling · 30 min</small></button>
+              <button class="choice" data-service="Barba"><b>Barba</b><small>Rifinitura a lama · 30 min</small></button>
+              <button class="choice" data-service="Taglio + barba"><b>Taglio + barba</b><small>Il completo · 45 min</small></button>
+            </div>
+            <h3 class="bstep__title">Come vieni?</h3>
+            <div class="seg" id="typeChoices">
+              <button class="seg__btn is-on" data-type="Ho già l'abbonamento">Ho l'abbonamento</button>
+              <button class="seg__btn" data-type="Voglio attivare l'abbonamento">Attivo l'abbonamento</button>
+              <button class="seg__btn" data-type="Servizio singolo">Servizio singolo</button>
+            </div>
+            <div class="booker__nav"><span></span><button class="btn btn--gold" data-next disabled>Avanti →</button></div>
+          </div>
+
+          <!-- STEP 2 -->
+          <div class="bstep" data-step="2">
+            <div class="bstep__row">
+              <h3 class="bstep__title" id="monthLabel">Scegli il giorno</h3>
+              <div class="days-arrows"><button class="iconbtn" id="daysPrev" aria-label="Giorni precedenti">←</button><button class="iconbtn" id="daysNext" aria-label="Giorni successivi">→</button></div>
+            </div>
+            <div class="days" id="days"></div>
+            <p class="hint" id="closedHint"></p>
+            <div class="booker__nav"><button class="btn btn--ghost" data-prev>← Indietro</button><button class="btn btn--gold" data-next disabled>Avanti →</button></div>
+          </div>
+
+          <!-- STEP 3 -->
+          <div class="bstep" data-step="3">
+            <h3 class="bstep__title" id="slotsTitle">Scegli l'orario</h3>
+            <div class="slots" id="slots"></div>
+            <div class="booker__nav"><button class="btn btn--ghost" data-prev>← Indietro</button><button class="btn btn--gold" data-next disabled>Avanti →</button></div>
+          </div>
+
+          <!-- STEP 4 -->
+          <div class="bstep" data-step="4">
+            <h3 class="bstep__title">Ultimi dettagli</h3>
+            <div class="confirm">
+              <form class="form" id="bookingForm" novalidate>
+                <label>Nome e cognome<input name="name" autocomplete="name" required placeholder="Mario Rossi" /></label>
+                <label>Telefono<input name="phone" type="tel" autocomplete="tel" required placeholder="333 123 4567" /></label>
+                <label>Codice promo <small>(facoltativo)</small><input name="code" placeholder="FCL30" /></label>
+                <label>Note <small>(facoltativo)</small><textarea name="notes" rows="2" placeholder="Es. sfumatura alta, foto di riferimento…"></textarea></label>
+                <p class="form__err" id="formErr" role="alert"></p>
+              </form>
+              <aside class="summary" id="summary"></aside>
+            </div>
+            <div class="booker__nav"><button class="btn btn--ghost" data-prev>← Indietro</button><button class="btn btn--gold" id="confirmBtn">Conferma su WhatsApp ↗</button></div>
+          </div>
+
+          <!-- DONE -->
+          <div class="bstep bstep--done" data-step="5">
+            <div class="done__check" aria-hidden="true"><svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="24"/><path d="M15 27l7 7 15-16"/></svg></div>
+            <h3 class="bstep__title">Richiesta inviata!</h3>
+            <p class="done__text" id="doneText"></p>
+            <div class="done__actions">
+              <button class="btn btn--ghost" id="icsBtn">Aggiungi al calendario</button>
+              <button class="btn btn--gold" id="newBooking">Nuova prenotazione</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mine" id="mine" hidden>
+        <h3>Le tue prenotazioni</h3>
+        <ul id="mineList"></ul>
+      </div>
+    </section>
+
+    <!-- DOVE -->
+    <section class="where" id="dove">
+      <div class="where__info">
+        <p class="eyebrow">Dove siamo</p>
+        <h2 class="title3d"><span>Centocelle,</span><span class="gold">Roma.</span></h2>
+        <a class="where__addr" href="https://maps.google.com/?q=Via+di+Centocelle+530,+Roma" target="_blank" rel="noopener">Via di Centocelle 530<br />00175 Roma ↗</a>
+        <dl class="hours" id="hoursList"></dl>
+        <div class="where__links">
+          <a class="btn btn--gold magnetic" id="waLink" target="_blank" rel="noopener" href="#">WhatsApp 328 893 4144</a>
+          <a class="btn btn--ghost magnetic" href="https://www.instagram.com/freshcutlab.studio/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+      <div class="where__map">
+        <iframe title="Mappa Fresh Cut Lab" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Via+di+Centocelle+530,+Roma&output=embed"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__big" aria-hidden="true">
+      <span class="type3d" data-text="FRESH CUT">FRESH CUT</span>
+    </div>
+    <div class="footer__row">
+      <span class="script footer__logo">fresh cut <small>LAB</small></span>
+      <span>Via di Centocelle 530, Roma</span>
+      <a href="https://www.instagram.com/freshcutlab.studio/" target="_blank" rel="noopener">@freshcutlab.studio</a>
+      <span>© <span id="year"></span> Fresh Cut Lab</span>
+    </div>
+  </footer>
+
+  <a href="#prenota" class="fab" id="fab" aria-label="Prenota">Prenota</a>
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script defer src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
